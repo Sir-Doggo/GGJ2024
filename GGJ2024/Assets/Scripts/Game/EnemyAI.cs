@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     public AudioSource source;
     public AudioClip clip;
 
+    public bool audioPlayed = false;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -49,7 +51,11 @@ public class EnemyAI : MonoBehaviour
         Animator anim = Enemy.GetComponent<Animator>();
         if(anim != null)
         anim.SetTrigger(""); //fill in for running anim
-        source.PlayOneShot(clip);
+        if(audioPlayed == false)
+        {
+            source.PlayOneShot(clip);
+            audioPlayed = true;
+        }
     }
 
     private void AttackPlayer()
