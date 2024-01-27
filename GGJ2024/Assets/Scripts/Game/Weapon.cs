@@ -11,6 +11,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] Dialogue gunDialoguetext;
 
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject effectModel;
+
+    [SerializeField] LayerMask enemyLayer;
 
     public bool hasGun = false;
     bool firstTime = true;
@@ -34,11 +37,7 @@ public class Weapon : MonoBehaviour
                     StartCoroutine(Whiff());
                 }
                 
-                if(firstTime)
-                {
-                    firstTime = false;
-                    narrator.UpdateText("Huh, that should have worked....");
-                }
+                
             }
             //else
             //{
@@ -58,13 +57,38 @@ public class Weapon : MonoBehaviour
 
         whiffed = true;
 
-        gunDialogueObject.SetActive(true);
-        gunDialoguetext.UpdateText("Whiff");
+        effectModel.SetActive(true);
+
+        bool hitEnemy = false;
+        if(Physics.Raycast(gunModel.transform.position, -gunModel.transform.right, 100f, enemyLayer))
+        {
+            Debug.Log("Hit");
+            // hit enemy
+            hitEnemy = true;
+            gunDialogueObject.SetActive(true);
+            gunDialoguetext.UpdateText("Whiff");
+
+            if (firstTime)
+            {
+                firstTime = false;
+                narrator.UpdateText("Huh, that should have worked....");
+            }
+        }
+
 
         yield return new WaitForSeconds(0.25f);
 
-        gunDialogueObject.SetActive(false);
+        effectModel.SetActive(false);
+        if (hitEnemy)
+        {
+            gunDialogueObject.SetActive(false);
+        }
 
         whiffed= false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(gunModel.transform.position, -gunModel.transform.right * 100f);
     }
 }
