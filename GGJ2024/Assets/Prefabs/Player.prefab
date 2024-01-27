@@ -825,6 +825,8 @@ MonoBehaviour:
   playerCamera: {fileID: 1697705873514218136}
   jumpHeight: 0.8
   groundDistance: 0.05
+  source: {fileID: 5860734718558789642}
+  clip: {fileID: 8300000, guid: 2e10c12fe3116b240afff0e3c8c27ed2, type: 3}
 --- !u!114 &5355415302187879687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +848,8 @@ MonoBehaviour:
   m_AffectedAgents: ffffffff
 --- !u!114 &1979871519823129764
 MonoBehaviour:
+--- !u!82 &5860734718558789642
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1103,6 +1107,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7497803352070669791}
+  - component: {fileID: 5034843854052104064}
+  - component: {fileID: 4052978575546769775}
+  - component: {fileID: 5369923757605173875}
   m_Layer: 10
   m_Name: TestCharacter
   m_TagString: Untagged

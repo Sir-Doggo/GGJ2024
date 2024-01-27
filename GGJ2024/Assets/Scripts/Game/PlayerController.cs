@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     bool isGround;
     bool isJump;
 
+    public AudioSource source;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
         Vector3 move = (transform.right * horizAxis) + (transform.forward * vertAxis);
         controller.Move(move * moveSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+        //source.PlayOneShot(clip);  play with anim
     }
 
     void AnimateModel()
