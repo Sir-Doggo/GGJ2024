@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DroneMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Cannon
+    m_Weight: 0
+  - m_Path: Drone
+    m_Weight: 0
+  - m_Path: DroneRig
+    m_Weight: 0
+  - m_Path: DroneRig/Root
+    m_Weight: 0
+  - m_Path: DroneRig/Root/Cannon
+    m_Weight: 0
+  - m_Path: DroneRig/Root/Cannon/Cannon_end
+    m_Weight: 0
+  - m_Path: DroneRig/Root/Propeller
+    m_Weight: 1
+  - m_Path: DroneRig/Root/Propeller/Propeller_end
+    m_Weight: 0
+  - m_Path: Propellers
+    m_Weight: 0
