@@ -43,10 +43,6 @@ GameObject:
   - component: {fileID: 7351041963636742921}
   - component: {fileID: 6911407453925864538}
   - component: {fileID: 5355415302187879687}
-<<<<<<< Updated upstream
-=======
-  - component: {fileID: 5860734718558789642}
->>>>>>> Stashed changes
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -116,12 +112,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerCamera: {fileID: 1697705873514218136}
-<<<<<<< Updated upstream
   groundDistance: 0.05
-=======
   source: {fileID: 5860734718558789642}
   clip: {fileID: 8300000, guid: 2e10c12fe3116b240afff0e3c8c27ed2, type: 3}
->>>>>>> Stashed changes
 --- !u!114 &5355415302187879687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,12 +239,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7497803352070669791}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 5034843854052104064}
   - component: {fileID: 4052978575546769775}
   - component: {fileID: 5369923757605173875}
->>>>>>> Stashed changes
   m_Layer: 10
   m_Name: TestCharacter
   m_TagString: Untagged
@@ -503,13 +493,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 5866666021909216657, guid: 22b9054c680204d4ab4c2579817c2c66, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4d3985d932e33ac4988d7ca370f42615, type: 2}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 6356257359359568395, guid: 22b9054c680204d4ab4c2579817c2c66, type: 3}
       propertyPath: m_Layer
       value: 10
