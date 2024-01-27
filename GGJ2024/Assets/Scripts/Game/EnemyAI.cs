@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
 
     public bool audioPlayed = false;
 
+    [SerializeField] bool canKillPlayer = false;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -63,5 +65,6 @@ public class EnemyAI : MonoBehaviour
         Animator anim = Enemy.GetComponent<Animator>();
         if(anim != null)
         anim.SetTrigger(""); //fill in for the glorious T-pose
+        GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
     }
 }

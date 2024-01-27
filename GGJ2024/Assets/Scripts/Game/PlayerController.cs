@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
         ApplyMouseDirection();
         ApplyMovement();
         AnimateModel();
-        print("Velocity "+ controller.velocity);
     }
 
     void GetInputs()
