@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask groundDetection, playerDetection;
     public GameObject pivot;
+    Animator anim;
 
     //Variables to determine the state of the AI
     public float chaseRange, attackRange;
@@ -23,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        anim = GetComponentInChildren<Animator>();
 
     }
 
@@ -36,7 +38,11 @@ public class EnemyAI : MonoBehaviour
         {
             ChasePlayer();
         }
-        else if (playerInChaseRange && playerInAttackRange)
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+        if (playerInChaseRange && playerInAttackRange)
         {
             AttackPlayer();
         }
@@ -48,9 +54,7 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        Animator anim = Enemy.GetComponent<Animator>();
-        if(anim != null)
-        anim.SetTrigger(""); //fill in for running anim
+        anim.SetBool("isMoving",true); //fill in for running anim
         if(audioPlayed == false)
         {
             source.PlayOneShot(clip);
@@ -60,7 +64,6 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        Animator anim = Enemy.GetComponent<Animator>();
         if(anim != null)
         anim.SetTrigger(""); //fill in for the glorious T-pose
     }
