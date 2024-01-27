@@ -17,6 +17,9 @@ public class Weapon : MonoBehaviour
 
     public bool hasGun = false;
     bool firstTime = true;
+
+    public AudioSource source;
+    public AudioClip clip;
     public void ActivateGun()
     {
         hasGun = true;
@@ -35,6 +38,7 @@ public class Weapon : MonoBehaviour
                 if (!whiffed)
                 {
                     StartCoroutine(Whiff());
+                    source.PlayOneShot(clip);
                 }
                 
                 
