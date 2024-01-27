@@ -8,9 +8,13 @@ public class InteractableButton : InteractableObject
     [SerializeField] InteractableObject[] linkedObjects;
     public override void Interaction()
     {
-        foreach(var obj in linkedObjects)
+        if (linkedObjects != null && linkedObjects.Length > 0)
         {
-            obj.Interaction();
+            foreach (var obj in linkedObjects)
+            {
+                if(obj == null)continue;
+                obj.Interaction();
+            }
         }
 
         StartCoroutine(AnimateButton());
@@ -36,11 +40,11 @@ public class InteractableButton : InteractableObject
     {
         if(moveDown)
         {
-            transform.position -= new Vector3(0.0f, 0.1f, 0.0f) * Time.deltaTime;
+            transform.position -= transform.up * 0.1f * Time.deltaTime;
         }
         if(moveUp)
         {
-            transform.position -= new Vector3(0.0f, 0.1f, 0.0f) * Time.deltaTime;
+            transform.position += transform.up * 0.1f * Time.deltaTime;
         }
     }
 }

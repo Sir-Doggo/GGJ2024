@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     float moveSpeed = 5f;
     Vector3 velocity;  //can serialise for testing
     float gravity = -9.81f;
-    float jumpHeight = 0.8f;  //can serialise during testing
+    [SerializeField] float jumpHeight = 0.8f;  //can serialise during testing
     [SerializeField]
     float groundDistance = 0.05f;
     bool isGround;

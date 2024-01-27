@@ -7,7 +7,10 @@ public class InteractableDoor : InteractableObject
     [SerializeField] GameObject pivot;
     [Tooltip("The angle for the door. 15 is optimum, anymore will make it spin")]
     [SerializeField] int doorAngle = 15;
+    [SerializeField] int doorCloseAngle = 15;
     [SerializeField] bool closeBehindPlayer = false;
+    [SerializeField] bool timed = false;
+    [SerializeField] float timer = 2f;
     public override void Interaction()
     {
         // open the door
@@ -25,17 +28,29 @@ public class InteractableDoor : InteractableObject
             yield return new WaitForSeconds(0.1f);
             angle++;
         }
-        yield return null;
+        if (timed)
+        {
+            yield return new WaitForSeconds(timer);
+            StartCoroutine(Close());
+        }
+        //yield return null;
     }
 
     IEnumerator Close()
     {
-        int angle = 90;
-        while (angle > 0)
+        float progress = 0;
+        Quaternion startRot = transform.rotation;
+        Quaternion endRot = Quaternion.Euler(0, 0, 0);
+        Vector3 startPos = transform.localPosition;
+        Vector3 endPos = Vector3.zero;
+        while (progress < 1)
         {
-            transform.RotateAround(pivot.transform.position, Vector3.up, angle);
+            //transform.RotateAround(pivot.transform.position, Vector3.up, angle);
+            progress += 0.1f;
+            transform.localRotation = Quaternion.Lerp(startRot, endRot, progress);
+            transform.localPosition = Vector3.Lerp(startPos, endPos, progress);
             yield return new WaitForSeconds(0.1f);
-            angle--;
+            
         }
     }
 

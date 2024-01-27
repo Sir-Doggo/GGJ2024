@@ -11,6 +11,14 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] float interactionDistance = 10f;
     [SerializeField] LayerMask interactableLayers;
+
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     private void Update()
     {
         if (Physics.Raycast(interactionPoint.position, interactionPoint.forward,out RaycastHit hit, interactionDistance, interactableLayers))
@@ -30,6 +38,7 @@ public class Interaction : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         iObj.Interaction();
+                        anim.SetTrigger("isInteracting");
                     }
 
                     // show dialogue;
