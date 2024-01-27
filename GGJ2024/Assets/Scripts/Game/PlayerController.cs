@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     float xRotation = 0f; //horizontal
     float yRotation = 0f; //vertical
-    float moveSpeed = 10f;
+    float moveSpeed = 5f;
     Vector3 velocity;  //can serialise for testing
     float gravity = -9.81f;
     float jumpHeight = 0.8f;  //can serialise during testing
