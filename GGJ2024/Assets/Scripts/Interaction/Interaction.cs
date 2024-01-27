@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    [SerializeField] Transform interactionPoint;
     [SerializeField] GameObject interactionDialogueObject;
     [SerializeField] TextMeshProUGUI interactionText;
 
@@ -12,7 +13,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] LayerMask interactableLayers;
     private void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.forward,out RaycastHit hit, interactionDistance, interactableLayers))
+        if (Physics.Raycast(interactionPoint.position, interactionPoint.forward,out RaycastHit hit, interactionDistance, interactableLayers))
         {
             //we have found something we can interact with
             var iObj = hit.collider.GetComponent<InteractableObject>();
@@ -45,6 +46,6 @@ public class Interaction : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawLine(transform.position, transform.forward * interactionDistance);
+        Gizmos.DrawLine(interactionPoint.position, interactionPoint.forward * interactionDistance);
     }
 }

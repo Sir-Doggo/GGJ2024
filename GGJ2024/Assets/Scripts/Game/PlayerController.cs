@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     void ApplyMouseDirection()
     {
         yRotation -= mouseY * mouseSensitivity * Time.deltaTime;
-        yRotation = Mathf.Clamp(yRotation, -10f, 10f);     //limit looking up and down
+        yRotation = Mathf.Clamp(yRotation, -20f, 20f);     //limit looking up and down
         playerCamera.transform.localRotation = Quaternion.Euler(yRotation, 0f, 0f);
         //comment above 3 lines to restrict looking up and down
 

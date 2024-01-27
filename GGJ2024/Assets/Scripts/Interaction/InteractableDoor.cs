@@ -24,7 +24,6 @@ public class InteractableDoor : InteractableObject
             transform.RotateAround(pivot.transform.position, Vector3.up, angle);
             yield return new WaitForSeconds(0.1f);
             angle++;
-            Debug.Log(angle);
         }
         yield return null;
     }

@@ -12,7 +12,6 @@ public class Dialogue : MonoBehaviour
     [SerializeField] float textSpeed = 2f;
     [SerializeField] float displayTime = 3f; // how long text should be displayed after fully visible
 
-    [SerializeField] Color32[] vertexColours;
 
     void Awake()
     {
@@ -38,39 +37,11 @@ public class Dialogue : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //void SetCharAplha(int charId, int alpha)
-    //{
-    //    if (charId == 0) return;
-    //    Debug.Log(charId);
-    //    Debug.Log(textInfo);
-    //    int matIndex = textInfo.characterInfo[charId].materialReferenceIndex;
-    //    int vertexIndex = textInfo.characterInfo[charId].vertexIndex;
-    //    vertexColours = textInfo.meshInfo[matIndex].colors32;
-    //    Debug.Log(matIndex);
-
-    //    byte cAlpha = (byte)Mathf.Clamp(alpha, 0, 255);
-    //    Color colour = new(255,255,255,cAlpha);
-
-    //    vertexColours[vertexIndex + 0] = colour;
-    //    vertexColours[vertexIndex + 1] = colour;
-    //    vertexColours[vertexIndex + 2] = colour;
-    //    vertexColours[vertexIndex + 3] = colour;
-
-    //    //textInfo.characterInfo[charId].color.a = cAlpha;
-    //}
 
     public void UpdateText(string newText)
     {
-        //text.text = newText;
-        //int currentCharacter = 0;
-        //int maxCharacters = text.text.Length;
-
-        //while (currentCharacter < maxCharacters)
-        //{
-        //    SetCharAplha(currentCharacter, 0);
-        //    currentCharacter++;
-        //}
-        //text.alpha = 0;
+        gameObject.SetActive (true);
+        text.text = "";
 
         StartCoroutine(AnimateText(newText));
     }
