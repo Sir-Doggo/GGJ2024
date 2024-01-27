@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
 
     public bool hasGun = false;
     bool firstTime = true;
+    bool secondTime = false;
 
     public AudioSource source;
     public AudioClip clip;
@@ -84,6 +85,12 @@ public class Weapon : MonoBehaviour
             if (firstTime)
             {
                 firstTime = false;
+                secondTime = true;
+                
+            }
+            else if(secondTime)
+            {
+                secondTime = false;
                 narrator.UpdateText("Huh, that should have worked....");
             }
         }
