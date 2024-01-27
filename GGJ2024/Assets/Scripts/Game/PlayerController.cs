@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     [SerializeField] Camera playerCamera;
+    Animator anim;
 
     float mouseX;
     float mouseY;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;  //can serialise for testing
     float gravity = -9.81f;
     float jumpHeight = 0.8f;  //can serialise during testing
+    [SerializeField]
     float groundDistance = 0.05f;
     bool isGround;
     bool isJump;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,8 @@ public class PlayerController : MonoBehaviour
         CheckisJump();
         ApplyMouseDirection();
         ApplyMovement();
+        AnimateModel();
+        print("Velocity "+ controller.velocity);
     }
 
     void GetInputs()
@@ -52,22 +58,27 @@ public class PlayerController : MonoBehaviour
 
     void CheckIfGrounded()
     {
+        anim.SetBool("isGrounded", isGround);
         isGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGround && velocity.y < 0)
         {
             velocity.y = 0f;
+            
         }
         else if (!isGround)
         {
             velocity.y += gravity * Time.deltaTime;
+            
         }
     }
 
     void CheckisJump()
     {
+        anim.SetBool("isJumping", isJump);
         if (isJump && isGround)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            
         }
     }
 
@@ -89,9 +100,27 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    void AnimateModel()
+    {
+        if (horizAxis != 0 || vertAxis != 0)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+    }
 
     private void DestroyPlayer()
     {
         Destroy(gameObject);
     }
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(groundCheck.position, groundDistance);
+    }
+
 }
