@@ -21,4 +21,17 @@ public class UIButtonController : MonoBehaviour
         currentActiveMenu = menuObjectToActivate;
         currentActiveMenu.SetActive(true);
     }
+
+    public void QuitPopUp(GameObject menuObjectToActivate)
+    {
+        //randomly place this popup around the place.
+        Vector3 pos = new(Random.Range(0,Screen.width), Random.Range(0, Screen.height),0);
+        GameObject obj = Instantiate(menuObjectToActivate, pos,Quaternion.identity, transform);
+        obj.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
