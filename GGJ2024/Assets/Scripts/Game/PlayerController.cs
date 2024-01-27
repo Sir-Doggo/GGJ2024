@@ -100,7 +100,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = (transform.right * horizAxis) + (transform.forward * vertAxis);
         controller.Move(move * moveSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
-        //source.PlayOneShot(clip);  play with anim
     }
 
     void AnimateModel()
@@ -108,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if (horizAxis != 0 || vertAxis != 0)
         {
             anim.SetBool("isMoving", true);
+            source.PlayOneShot(clip);
         }
         else
         {
