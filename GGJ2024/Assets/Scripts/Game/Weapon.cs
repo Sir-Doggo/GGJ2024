@@ -20,6 +20,13 @@ public class Weapon : MonoBehaviour
 
     public AudioSource source;
     public AudioClip clip;
+
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = gunModel.GetComponentInChildren<Animator>();
+    }
     public void ActivateGun()
     {
         hasGun = true;
@@ -38,6 +45,7 @@ public class Weapon : MonoBehaviour
                 if (!whiffed)
                 {
                     StartCoroutine(Whiff());
+                    if(clip != null)
                     source.PlayOneShot(clip);
                 }
                 
@@ -59,12 +67,13 @@ public class Weapon : MonoBehaviour
     {
         if(whiffed) yield return null;
 
+        anim.SetTrigger("Shooting");
         whiffed = true;
 
         effectModel.SetActive(true);
 
         bool hitEnemy = false;
-        if(Physics.Raycast(gunModel.transform.position, -gunModel.transform.right, 100f, enemyLayer))
+        if(Physics.Raycast(gunModel.transform.position, gunModel.transform.forward, 100f, enemyLayer))
         {
             Debug.Log("Hit");
             // hit enemy
@@ -93,6 +102,6 @@ public class Weapon : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(gunModel.transform.position, -gunModel.transform.right * 100f);
+        Gizmos.DrawLine(gunModel.transform.position, gunModel.transform.forward * 100f);
     }
 }

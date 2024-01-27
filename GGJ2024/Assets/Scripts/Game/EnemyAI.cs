@@ -47,6 +47,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(player.position);
         Animator anim = Enemy.GetComponent<Animator>();
+        if(anim != null)
         anim.SetTrigger(""); //fill in for running anim
         source.PlayOneShot(clip);
     }
@@ -54,6 +55,7 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         Animator anim = Enemy.GetComponent<Animator>();
+        if(anim != null)
         anim.SetTrigger(""); //fill in for the glorious T-pose
     }
 }
