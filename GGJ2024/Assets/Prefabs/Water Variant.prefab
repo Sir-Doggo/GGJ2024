@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1840936139302989737, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2507391822567415996, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -15,6 +19,14 @@ PrefabInstance:
     - target: {fileID: 2675974874098188386, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
       propertyPath: m_Name
       value: Water Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675974874098188386, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096282852364373659, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6276931453599713545, guid: f365cfda84136af47a0516404c1ccad0, type: 3}
       propertyPath: m_LocalScale.y
