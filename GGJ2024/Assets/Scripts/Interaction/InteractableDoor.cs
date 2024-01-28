@@ -11,8 +11,17 @@ public class InteractableDoor : InteractableObject
     [SerializeField] bool closeBehindPlayer = false;
     [SerializeField] bool timed = false;
     [SerializeField] float timer = 2f;
+
+    [SerializeField] AudioClip clip;
+    AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
     public override void Interaction()
     {
+        source.PlayOneShot(clip);
         // open the door
         StartCoroutine(Open());
         GetComponent<Collider>().enabled = false;

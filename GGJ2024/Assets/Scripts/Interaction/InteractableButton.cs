@@ -11,11 +11,11 @@ public class InteractableButton : InteractableObject
     public AudioSource source;
     public AudioClip clip;
 
-    private void Awake()
-    {
-        source = GetComponent<AudioSource>();
-        source.clip = clip;
-    }
+    //private void Awake()
+    //{
+    //    //source = GetComponent<AudioSource>();
+    //    //source.clip = clip;
+    //}
     public override void Interaction()
     {
         source.PlayOneShot(clip);
