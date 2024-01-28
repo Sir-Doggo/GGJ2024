@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         if (isJump && isGround)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            source.PlayOneShot(clipJump);
+            //source.PlayOneShot(clipJump);
         }
     }
 
@@ -114,10 +114,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlaySound()
-    {
-        source.PlayOneShot(clip);
-    }
 
     private void DestroyPlayer()
     {
