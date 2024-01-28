@@ -90,6 +90,9 @@ MonoBehaviour:
   playerInAttackRange: 0
   source: {fileID: 252931853704848593}
   clip: {fileID: 8300000, guid: f3179eeb9cc83304d997c3bb1251ea9c, type: 3}
+  audioPlayed: 0
+  canKillPlayer: 0
+  timeBetweenAttacks: 0
 --- !u!195 &1042286898961484156
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -330,6 +333,34 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5135209123384284810, guid: d4206dc9b9751fd45a2e54a554ed12ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}

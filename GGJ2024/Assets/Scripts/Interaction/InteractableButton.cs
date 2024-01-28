@@ -6,8 +6,12 @@ public class InteractableButton : InteractableObject
 {
     [Tooltip("The objects which will do something when the button does something, it can be just one object")]
     [SerializeField] InteractableObject[] linkedObjects;
+
+    public AudioSource source;
+    public AudioClip clip;
     public override void Interaction()
     {
+        source.PlayOneShot(clip);
         if (linkedObjects != null && linkedObjects.Length > 0)
         {
             foreach (var obj in linkedObjects)
