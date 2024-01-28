@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7834135693177606450
 Transform:
@@ -231,6 +231,7 @@ MonoBehaviour:
   observeOnly: 0
   linkedObjects:
   - {fileID: 0}
+  buttonMoveSpeed: 0.5
   source: {fileID: 5072713038299417137}
   clip: {fileID: 8300000, guid: fe886f999d71f154aadebbaae1c9c1cc, type: 3}
 --- !u!82 &5072713038299417137
