@@ -7,6 +7,7 @@ public class InteractableButton : InteractableObject
     [Tooltip("The objects which will do something when the button does something, it can be just one object")]
     [SerializeField] InteractableObject[] linkedObjects;
 
+    [SerializeField] float buttonMoveSpeed = 0.5f;
     public AudioSource source;
     public AudioClip clip;
 
@@ -34,12 +35,12 @@ public class InteractableButton : InteractableObject
     {
         moveDown = true;
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(2f * buttonMoveSpeed);
 
         moveDown = false;
         moveUp = true;
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(2f * buttonMoveSpeed);
         moveUp = false;
     }
 
@@ -50,11 +51,11 @@ public class InteractableButton : InteractableObject
     {
         if(moveDown)
         {
-            transform.position -= transform.up * 0.1f * Time.deltaTime;
+            transform.position -= transform.up * buttonMoveSpeed * Time.deltaTime;
         }
         if(moveUp)
         {
-            transform.position += transform.up * 0.1f * Time.deltaTime;
+            transform.position += transform.up * buttonMoveSpeed * Time.deltaTime;
         }
     }
 }
