@@ -106,12 +106,16 @@ public class PlayerController : MonoBehaviour
         if (horizAxis != 0 || vertAxis != 0)
         {
             anim.SetBool("isMoving", true);
-            source.PlayOneShot(clip);
         }
         else
         {
             anim.SetBool("isMoving", false);
         }
+    }
+
+    public void PlaySound()
+    {
+        source.PlayOneShot(clip);
     }
 
     private void DestroyPlayer()
