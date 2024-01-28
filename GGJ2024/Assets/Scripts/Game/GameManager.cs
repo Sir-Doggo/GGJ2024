@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     Transform checkPoint;
     bool playerDead = false;
+    
     private void Awake()
     {
         if (instance == null)
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         instance.player.position = instance.checkPoint.position;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
-        //instance.playerDead = false;
+        instance.playerDead = false;
     }
 
     public static void PlayerDeath(string deathMessage)
