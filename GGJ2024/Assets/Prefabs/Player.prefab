@@ -719,6 +719,7 @@ MonoBehaviour:
   groundDistance: 0.05
   source: {fileID: 5860734718558789642}
   clip: {fileID: 8300000, guid: 2e10c12fe3116b240afff0e3c8c27ed2, type: 3}
+  clipJump: {fileID: 8300000, guid: 2f86a5a433690374182f366fb0f1b9e0, type: 3}
 --- !u!114 &5355415302187879687
 MonoBehaviour:
   m_ObjectHideFlags: 0

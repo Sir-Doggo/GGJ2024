@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource source;
     public AudioClip clip;
+    public AudioClip clipJump;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
         if (isJump && isGround)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            
+            source.PlayOneShot(clipJump);
         }
     }
 
