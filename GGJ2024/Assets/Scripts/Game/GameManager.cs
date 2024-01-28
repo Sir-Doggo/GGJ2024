@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] GameObject deathUI;
     [SerializeField] TextMeshProUGUI deathText;
-    [SerializeField] Dialogue narrator;
+    [SerializeField] Dialogue checkpointNarrator;
 
     [SerializeField] GameObject victoryUI;
 
-    Transform checkPoint;
+    Vector3 checkPoint;
     bool playerDead = false;
     
     private void Awake()
@@ -29,17 +29,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void NextCheckPoint(Transform checkPoint)
+    public static void NextCheckPoint(Vector3 checkPoint)
     {
         instance.checkPoint = checkPoint;
-        instance.narrator.UpdateText("New Check Point Added!");
+        instance.checkpointNarrator.UpdateText("New Check Point Added!");
     }
 
     public static void LoadCheckPoint()
     {
         Debug.Log("Loading Checkpoint");
         instance.deathUI.SetActive(false);
-        instance.player.position = instance.checkPoint.position;
+        instance.player.position = instance.checkPoint;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         instance.playerDead = false;

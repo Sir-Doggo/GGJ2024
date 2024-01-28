@@ -8,6 +8,8 @@ public class TriggerDialogue : MonoBehaviour
     [SerializeField] string text;
     Dialogue d;
     bool triggered = false;
+    [SerializeField] int triggerTimesBeforeDialogue;
+    int timesTriggered = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,9 @@ public class TriggerDialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SetText();
+            timesTriggered++;
+            if(timesTriggered >= triggerTimesBeforeDialogue)
+                SetText();
         }
     }
 }

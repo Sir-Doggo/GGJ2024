@@ -24,6 +24,8 @@ public class EnemyAI : MonoBehaviour
 
     public float timeBetweenAttacks;
     bool hasAttacked;
+    [SerializeField] Dialogue narrator;
+    [SerializeField] string dialogue = "Well, at least that Enemy didn't work, or you'd be dead!";
 
     private void Awake()
     {
@@ -69,25 +71,37 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        if(anim != null)
-        //anim.SetTrigger(""); //fill in for the glorious T-pose
-        if (canKillPlayer)
-        {
-            agent.SetDestination(transform.position);
-
-            transform.LookAt(player);
-            Animator anim = Enemy.GetComponent<Animator>();
-            //anim.SetTrigger("Attack");
-            //^ change this to suite the attack anim for the enemy
-
-            if (!hasAttacked)
+        if (anim != null)
+            //anim.SetTrigger(""); //fill in for the glorious T-pose
+            if (canKillPlayer)
             {
-                //attacking code should be in here
-                hasAttacked = true;
-                GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
-                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                agent.SetDestination(transform.position);
+
+                transform.LookAt(player);
+                Animator anim = Enemy.GetComponent<Animator>();
+                //anim.SetTrigger("Attack");
+                //^ change this to suite the attack anim for the enemy
+
+                if (!hasAttacked)
+                {
+                    //attacking code should be in here
+                    hasAttacked = true;
+                    GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
+                    Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                }
             }
-        }
+            else
+            {
+                if (narrator != null)
+                {
+                    if (!hasAttacked)
+                    {
+                        //attacking code should be in here
+                        hasAttacked = true;
+                        narrator.UpdateText(dialogue);
+                    }
+                }
+            }
     }
 
     private void ResetAttack()

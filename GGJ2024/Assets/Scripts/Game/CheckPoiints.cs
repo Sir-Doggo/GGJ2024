@@ -5,12 +5,13 @@ using UnityEngine;
 public class CheckPoiints : MonoBehaviour
 {
     bool triggered = false;
+    [SerializeField] Vector3 offset;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !triggered)
         {
             triggered = true;
-            GameManager.NextCheckPoint(transform);
+            GameManager.NextCheckPoint(transform.position + offset);
         }
     }
 }

@@ -12,7 +12,6 @@ public class Dialogue : MonoBehaviour
     [SerializeField] float textSpeed = 2f;
     [SerializeField] float displayTime = 3f; // how long text should be displayed after fully visible
 
-
     void Awake()
     {
         textInfo = text.textInfo;
@@ -42,7 +41,7 @@ public class Dialogue : MonoBehaviour
     {
         gameObject.SetActive (true);
         text.text = "";
-
+        StopAllCoroutines();
         StartCoroutine(AnimateText(newText));
     }
 }
