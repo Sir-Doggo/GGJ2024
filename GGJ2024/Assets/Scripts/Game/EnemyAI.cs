@@ -22,6 +22,9 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] bool canKillPlayer = false;
 
+    public float timeBetweenAttacks;
+    bool hasAttacked;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -67,7 +70,28 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         if(anim != null)
-        //anim.SetTrigger(""); //fill in for the glorious T-pose
+        anim.SetTrigger(""); //fill in for the glorious T-pose
+        if (canKillPlayer)
+        {
+            agent.SetDestination(transform.position);
+
+            transform.LookAt(player);
+            Animator anim = Enemy.GetComponent<Animator>();
+            //anim.SetTrigger("Attack");
+            //^ change this to suite the attack anim for the enemy
+
+            if (!hasAttacked)
+            {
+                //attacking code should be in here
+                hasAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
+        }
         GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
+    }
+
+    private void ResetAttack()
+    {
+        hasAttacked = false;
     }
 }
