@@ -70,7 +70,7 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         if(anim != null)
-        anim.SetTrigger(""); //fill in for the glorious T-pose
+        //anim.SetTrigger(""); //fill in for the glorious T-pose
         if (canKillPlayer)
         {
             agent.SetDestination(transform.position);
@@ -84,10 +84,10 @@ public class EnemyAI : MonoBehaviour
             {
                 //attacking code should be in here
                 hasAttacked = true;
+                GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
         }
-        GameManager.PlayerDeath("Oh wow, I guess that enemy did work, sucks to be you :)");
     }
 
     private void ResetAttack()

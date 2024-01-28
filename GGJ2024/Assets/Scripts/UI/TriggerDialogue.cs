@@ -7,6 +7,7 @@ public class TriggerDialogue : MonoBehaviour
     [SerializeField] GameObject dialogue;
     [SerializeField] string text;
     Dialogue d;
+    bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,9 @@ public class TriggerDialogue : MonoBehaviour
 
     public void SetText()
     {
+        if(triggered) return;
+        triggered = true;
+
         dialogue.SetActive(true);
         d.UpdateText(text);
     }
