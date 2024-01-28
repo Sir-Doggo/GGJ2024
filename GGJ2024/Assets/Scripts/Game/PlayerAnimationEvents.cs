@@ -19,7 +19,6 @@ public class PlayerAnimationEvents : MonoBehaviour
     }
     public void PlaySound(int clipToPlay)
     {
-
         source.PlayOneShot(clip[clipToPlay]);
     }
 }

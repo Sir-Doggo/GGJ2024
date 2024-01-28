@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,5 +63,12 @@ public class GameManager : MonoBehaviour
     public static void PlayerWin()
     {
         instance.victoryUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f;
+    }
+
+    public void ToTitleScreen()
+    {
+        SceneManager.LoadScene(0);
     }
 }
