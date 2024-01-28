@@ -17,7 +17,7 @@ public class PlayerAnimationEvents : MonoBehaviour
     {
         
     }
-    public void PlayFootStepSound(int clipToPlay)
+    public void PlaySound(int clipToPlay)
     {
 
         source.PlayOneShot(clip[clipToPlay]);
